@@ -2,6 +2,13 @@ import Vue from 'vue'
 import axios from 'axios'
 import { Toast } from 'vant'
 import router from '../router'
+Vue.prototype.$url = function(url) {
+  if (url.startsWith('http')) {
+    return url
+  } else {
+    return 'http://localhost:3000' + url
+  }
+}
 Vue.prototype.$base = 'http://localhost:3000'
 Vue.prototype.$axios = axios
 axios.defaults.baseURL = 'http://localhost:3000'
