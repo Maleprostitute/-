@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../views/Login.vue'
-import Register from '../views/Register.vue'
-import User from '../views/User.vue'
-import UserEdit from '../views/UserEdit.vue'
-import MyFollow from '../views/MyFollow.vue'
-import UserMoment from '../views/UserMoment.vue'
-import UserStar from '../views/UserStar.vue'
+import Login from '../views/user/Login.vue'
+import Register from '../views/user/Register.vue'
+import User from '../views/user/User.vue'
+import UserEdit from '../views/user/UserEdit.vue'
+import MyFollow from '../views/user/MyFollow.vue'
+import UserMoment from '../views/user/UserMoment.vue'
+import UserStar from '../views/user/UserStar.vue'
 Vue.use(VueRouter)
 
 const routes = [
