@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view />
+    <keep-alive :include="$store.state.cachelist">
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 

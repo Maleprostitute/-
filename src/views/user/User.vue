@@ -2,14 +2,11 @@
   <div class="user">
     <div class="header" @click="toedit">
       <div class="avatar">
-        <img :src="base + user.head_img" alt="" />
+        <img :src="base + user.head_img" alt />
       </div>
       <div class="info">
         <div class="name">
-          <span
-            class="iconfont"
-            :class="user.gender === 1 ? 'iconxingbienan' : 'iconxingbienv'"
-          ></span>
+          <span class="iconfont" :class="user.gender === 1 ? 'iconxingbienan' : 'iconxingbienv'"></span>
           <span>{{ user.nickname }}</span>
         </div>
         <div class="time">{{ user.create_date | time }}</div>
@@ -22,15 +19,15 @@
       <template>我的关注</template>
       <template #content>关注的用户</template>
     </hm-navitem>
-    <hm-navitem to="/usermoment"
-      ><template>我的跟帖</template>
+    <hm-navitem to="/usermoment">
+      <template>我的跟帖</template>
       <template #content>跟帖/回复</template>
     </hm-navitem>
     <hm-navitem to="/userstar">
       <template>我的收藏</template>
       <template #content>文章/视频</template>
     </hm-navitem>
-    <hm-navitem>设置 </hm-navitem>
+    <hm-navitem>设置</hm-navitem>
     <div class="btn">
       <van-button type="danger" block @click="logout">退出</van-button>
     </div>
@@ -71,8 +68,7 @@ export default {
         return this.$toast('取消退出')
       }
       this.$router.push('/login')
-      localStorage.removeItem('token')
-      localStorage.removeItem('id')
+      this.$store.commit('removeToken')
       this.$toast('退出成功')
     }
   }

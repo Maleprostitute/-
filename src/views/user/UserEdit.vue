@@ -157,12 +157,12 @@ export default {
     //     }
     //   },
     afterRead(file) {
-      if (file.file.size > 1024 * 1024) {
-        return this.$toast.fail('图片大小不能超过1M')
-      }
-      if (!this.isImg(file.file.name)) {
-        return this.$toast.fail('图片格式不对')
-      }
+      // if (file.file.size > 1024 * 1024) {
+      //   return this.$toast.fail('图片大小不能超过1M')
+      // }
+      // if (!this.isImg(file.file.name)) {
+      //   return this.$toast.fail('图片格式不对')
+      // }
       this.isShowMask = true
       this.img = file.content
 
@@ -190,6 +190,23 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  .cancel,
+  .clip {
+    position: fixed;
+    bottom: 0;
+    z-index: 11111;
+  }
+  .cancel {
+    right: 0;
+  }
+}
 .avatar {
   text-align: center;
   padding: 20px 0;
@@ -215,21 +232,5 @@ export default {
     border: 1px solid red;
   }
 }
-.mask {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 99;
-  width: 100%;
-  height: 100%;
-  .cancel,
-  .clip {
-    position: fixed;
-    top: 0;
-    z-index: 1;
-  }
-  .cancel {
-    right: 0;
-  }
-}
+
 </style>

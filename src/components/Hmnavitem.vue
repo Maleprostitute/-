@@ -1,7 +1,11 @@
 <template>
   <div class="nav-item" @click="clickFn">
-    <div class="title"><slot></slot></div>
-    <div class="content"><slot name="content"></slot></div>
+    <div class="title">
+      <slot></slot>
+    </div>
+    <div class="content">
+      <slot name="content"></slot>
+    </div>
     <div class="arrow">
       <span class="iconfont iconjiantou1"></span>
     </div>

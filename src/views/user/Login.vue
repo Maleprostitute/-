@@ -19,11 +19,10 @@
         :rules="rules.password"
       />
       <div style="margin: 16px;">
-        <van-button round block type="info" native-type="submit">
-          登录
-        </van-button>
+        <van-button round block type="info" native-type="submit">登录</van-button>
         <p class="tips">
-          没有账号?去<router-link to="/register">注册</router-link>
+          没有账号?去
+          <router-link to="/register">注册</router-link>
         </p>
       </div>
     </van-form>
@@ -65,9 +64,12 @@ export default {
       const { statusCode, message, data } = res.data
       if (statusCode === 200) {
         this.$toast.success(message)
-        localStorage.setItem('token', data.token)
-        localStorage.setItem('id', data.user.id)
-        this.$router.push('/user')
+        this.$store.commit('setToken', { token: data.token, id: data.user.id })
+        if (this.$route.query.back) {
+          this.$router.go(-1)
+        } else {
+          this.$router.push('/user')
+        }
       } else {
         this.$toast.fail(message)
       }

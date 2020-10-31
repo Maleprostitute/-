@@ -10,9 +10,7 @@
             v-for="item in list"
             :key="item.id"
             @click="delItem(item.id)"
-          >
-            {{ item.name }}
-          </div>
+          >{{ item.name }}</div>
         </div>
       </div>
       <div class="addactive">
@@ -23,9 +21,7 @@
             v-for="item in delList"
             :key="item.id"
             @click="addItem(item.id)"
-          >
-            {{ item.name }}
-          </div>
+          >{{ item.name }}</div>
         </div>
       </div>
     </div>
@@ -76,7 +72,6 @@ export default {
     const { statusCode, data } = res.data
     if (statusCode === 200) {
       this.list = data
-      console.log(data)
     }
   }
 }

@@ -18,7 +18,7 @@
               <div class="comment-content">{{ item.parent.content }}</div>
             </div>
             <div class="content">{{ item.content }}</div>
-            <div class="origin">
+            <div class="origin" @click="$router.push(`/postdetail/${item.post.id}`)">
               <span class="one-txt-cut">原文:{{ item.post.title }}</span>
               <span class="iconfont iconjiantou1"></span>
             </div>

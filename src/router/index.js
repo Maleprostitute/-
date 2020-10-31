@@ -1,15 +1,28 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../views/user/Login.vue'
-import Register from '../views/user/Register.vue'
-import User from '../views/user/User.vue'
-import UserEdit from '../views/user/UserEdit.vue'
-import MyFollow from '../views/user/MyFollow.vue'
-import UserMoment from '../views/user/UserMoment.vue'
-import UserStar from '../views/user/UserStar.vue'
-import Index from '../views/news/index.vue'
-import Manage from '../views/news/manage.vue'
-import PostDetail from '../views/news/postDetail.vue'
+import store from '../store/index'
+const Login = () =>
+  import(/* webpackChunkName: "user" */ '../views/user/Login.vue')
+const Register = () =>
+  import(/* webpackChunkName: "user" */ '../views/user/Register.vue')
+const User = () =>
+  import(/* webpackChunkName: "user" */ '../views/user/User.vue')
+const UserEdit = () =>
+  import(/* webpackChunkName: "user" */ '../views/user/UserEdit.vue')
+const MyFollow = () =>
+  import(/* webpackChunkName: "user" */ '../views/user/MyFollow.vue')
+const UserMoment = () =>
+  import(/* webpackChunkName: "user" */ '../views/user/UserMoment.vue')
+const UserStar = () =>
+  import(/* webpackChunkName: "user" */ '../views/user/UserStar.vue')
+const Index = () =>
+  import(/* webpackChunkName: "news" */ '../views/news/index.vue')
+const Manage = () =>
+  import(/* webpackChunkName: "news" */ '../views/news/manage.vue')
+const PostDetail = () =>
+  import(/* webpackChunkName: "news" */ '../views/news/postDetail.vue')
+const Search = () =>
+  import(/* webpackChunkName: "news" */ '../views/news/Search.vue')
 Vue.use(VueRouter)
 
 const routes = [
@@ -22,7 +35,8 @@ const routes = [
   { path: '/userstar', component: UserStar, name: 'userstar' },
   { path: '/', component: Index, name: 'index' },
   { path: '/manage', component: Manage, name: 'manage' },
-  { path: '/postdetail/:id', component: PostDetail, name: 'postdetail' }
+  { path: '/postdetail/:id', component: PostDetail, name: 'postdetail' },
+  { path: '/search', component: Search, name: 'search' }
 ]
 
 const router = new VueRouter({
@@ -30,6 +44,12 @@ const router = new VueRouter({
 })
 const authUrls = ['/user', '/useredit', '/usermoment', '/myfollow', '/userstar']
 router.beforeEach(function(to, from, next) {
+  if (to.name === 'index') {
+    store.commit('addcache', 'index')
+  }
+  if (to.name === 'manage') {
+    store.commit('delcache', 'index')
+  }
   const token = localStorage.getItem('token')
   if (!authUrls.includes(to.path) || token) {
     next()

@@ -2,11 +2,11 @@
   <div class="index">
     <div class="index-h">
       <div class="arrow1">
-        <span class="iconfont iconnew"></span>
+        <span class="iconfont iconnew" @click="$router.push('/wowowo')"></span>
       </div>
-      <div class="search">
+      <div class="search" @click="$router.push(`/search`)">
         <span class="iconfont iconsearch"></span>
-        <span class="title">搜索新闻</span>
+        <span class="title">搜索新1闻</span>
       </div>
       <div class="arrow2">
         <span class="iconfont iconwode"></span>
@@ -27,11 +27,7 @@
             finished-text="没有更多了"
             @load="onLoad"
           >
-            <hm-post
-              v-for="items in list"
-              :key="items.id"
-              :post="items"
-            ></hm-post>
+            <hm-post v-for="items in list" :key="items.id" :post="items"></hm-post>
           </van-list>
         </van-tab>
       </van-pull-refresh>
@@ -41,6 +37,7 @@
 
 <script>
 export default {
+  name: 'index',
   data() {
     return {
       tab: '',
@@ -87,7 +84,6 @@ export default {
         if (data.length < this.pageSize) {
           this.finished = true
         }
-        console.log(this.list)
       }
     },
     async getTab() {
