@@ -6,7 +6,7 @@
       </div>
       <div class="search" @click="$router.push(`/search`)">
         <span class="iconfont iconsearch"></span>
-        <span class="title">搜索新1闻</span>
+        <span class="title">搜索新1111闻</span>
       </div>
       <div class="arrow2">
         <span class="iconfont iconwode"></span>
