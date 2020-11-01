@@ -22,7 +22,7 @@
         <van-button round block type="info" native-type="submit">登录</van-button>
         <p class="tips">
           没有账号?去
-          <router-link to="/register">注册</router-link>
+          <router-link to="/register">注11册</router-link>
         </p>
       </div>
     </van-form>
