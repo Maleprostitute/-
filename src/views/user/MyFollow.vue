@@ -1,6 +1,6 @@
 <template>
   <div class="my-follow">
-    <hm-header>我的关注</hm-header>
+    <hm-header>我的关注111</hm-header>
     <div class="item" v-for="item in list" :key="item.id">
       <div class="avatra">
         <img :src="$base + item.head_img" alt />
@@ -11,6 +11,7 @@
       </div>
       <div class="follow">
         <van-button round type="info" @click="unfollow(item.id)">取消关注1</van-button>
+        <van-button round type="info" @click="unfollow(item.id)">取消关注</van-button>
       </div>
     </div>
   </div>
