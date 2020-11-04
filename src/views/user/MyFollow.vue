@@ -1,6 +1,6 @@
 <template>
   <div class="my-follow">
-    <hm-header>我的关注1</hm-header>
+    <hm-header>我的关注111</hm-header>
     <div class="item" v-for="item in list" :key="item.id">
       <div class="avatra">
         <img :src="$base + item.head_img" alt />
