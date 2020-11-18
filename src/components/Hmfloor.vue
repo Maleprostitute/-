@@ -1,15 +1,11 @@
 <template>
   <div>
-    <hm-floor
-      :count="count - 1"
-      :item="item.parent"
-      v-if="item.parent"
-    ></hm-floor>
+    <hm-floor :count="count - 1" :item="item.parent" v-if="item.parent"></hm-floor>
     <div class="hmfloor">
       <div class="header">
         <div class="nickname">{{ count }}.{{ item.user.nickname }}</div>
         <div class="time">{{ item.create_date | time1 }}</div>
-        <div class="reply" @click="reply">回复</div>
+        <div class="reply" @click="reply">回复11</div>
       </div>
       <div class="content">{{ item.content }}</div>
     </div>
